@@ -1,0 +1,11 @@
+\contentsline {section}{\numberline {1}The Functional Approach }{1}{section.1}%
+\contentsline {section}{\numberline {2}The Model Class}{1}{section.2}%
+\contentsline {subsection}{\numberline {2.1}feed\_forward}{2}{subsection.2.1}%
+\contentsline {section}{\numberline {3}Preprocessing}{2}{section.3}%
+\contentsline {section}{\numberline {4}Hyper-parameter Tuning}{2}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Decision Rule}{3}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Model Width}{3}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Regularization}{3}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Learning Rate}{3}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}Batch Size}{3}{subsection.4.5}%
+\contentsline {section}{\numberline {5}Metrics \& Evaluation}{3}{section.5}%

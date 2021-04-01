@@ -1,0 +1,11 @@
+\BOOKMARK [1][-]{section.1}{The Functional Approach }{}% 1
+\BOOKMARK [1][-]{section.2}{The Model Class}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{feed\137forward}{section.2}% 3
+\BOOKMARK [1][-]{section.3}{Preprocessing}{}% 4
+\BOOKMARK [1][-]{section.4}{Hyper-parameter Tuning}{}% 5
+\BOOKMARK [2][-]{subsection.4.1}{Decision Rule}{section.4}% 6
+\BOOKMARK [2][-]{subsection.4.2}{Model Width}{section.4}% 7
+\BOOKMARK [2][-]{subsection.4.3}{Regularization}{section.4}% 8
+\BOOKMARK [2][-]{subsection.4.4}{Learning Rate}{section.4}% 9
+\BOOKMARK [2][-]{subsection.4.5}{Batch Size}{section.4}% 10
+\BOOKMARK [1][-]{section.5}{Metrics \046 Evaluation}{}% 11
