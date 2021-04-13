@@ -1,14 +1,15 @@
 import numpy as np 
 import pandas as pd
 
-def load_data(path): 
+def load_data(path, as_df = False): 
     """
     Loads and preprocesses data into a form that can be taken in by the models 
     that are being used. 
     
     Keyword Arguments: 
     path - the path string to where the data is being loaded 
-    
+    as_df - returns a pandas DataFrame if True
+
     Returns: 
     x - the data matrix 
     y - the response vector 
@@ -24,10 +25,15 @@ def load_data(path):
         df[state_code] = (df["States"] == state_code).astype('int64')
         
     df = df.drop("States", axis = 1)
+
+    if as_df: 
+        return df
+
     X = df.drop("Default_ind", axis = 1).to_numpy()
     y = df["Default_ind"].to_numpy()
     
     return X, y
+
 
 def decide(y_prob, threshold = 0.5): 
     """
@@ -81,3 +87,7 @@ def tune_threshold(y, y_prob, max_iter = 100, eta = 0.1):
             best_acc = acc
             
     return threshold
+
+
+def accuracy(y, yhat): 
+    return 1 - ((y-yhat)**2).sum()/y.shape[0]

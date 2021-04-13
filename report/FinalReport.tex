@@ -1,7 +1,9 @@
-\documentclass{article}
+\documentclass[12pt]{article}
 
 \usepackage{geometry}
 \geometry{letterpaper, total={7in, 10in} }
+\usepackage{setspace}
+\setstretch{1.2}
 \usepackage{booktabs}
 \usepackage{graphicx}
 \usepackage{verbatim}
@@ -16,5 +18,45 @@
 	\tableofcontents
 	\newpage
 	
+	\section{Exploratory Data Analysis and Preprocessing}
+	
+	\subsection{Summary Statistics for Continuous Variables}
+	
+	We begin our exploratory data analysis by looking into the data, and determining the type of the data for each column. For continuous numerical data, we want to visualize the distribution using histograms as well as taking a look at the following summary statistics: mean, standard deviation, the minimum and the maximum. For the categorical data we want to take a look at the possible categories, and the frequency of each category. 
+	
+	Using pandas and the information sheet here are the numerical variables: 
+	
+
+	\input{numerical.tex}
+	
+	By looking at the descriptive statistics we can see if there are any major outliers, and determine how we can use these variables in our data. We see that minimum and maximum values for many of the continuous variable are very extreme for Total Credit Debt, Average Credit Debt, and Credit past due amount. We also see that many variables seem to have very similar distributions, which may be a problem in regards to multi-collinearity. To investigate this we can create a correlation matrix and re-scale certain variables to try to preserve information, while combating multi-collinearity. 
+	
+	\begin{center}
+			\includegraphics[scale = 0.15]{../notebooks/dist.png}
+	\end{center}
+
+
+	Looking at the histogram gives us a better picture of the distributions of the variables because it allows us to visualize the shapes of the variables. We can see that the outliers for Average Credit Debt are seriously impacting the distribution in comparison to Total Credit Debt. This visualization also allows us to look at some variables which by their description seem to be numerical, but display behavior that is more characteristic of categorical variables. Variables like the number of mortgages past due or non-mortgages past due would be better suited to being dummy variables rather than continuous ones. 
+	
+	\subsection{Summary Statistics for Categorical Variables}
+	
+	\begin{center}
+		\includegraphics[scale=0.15]{../notebooks/counts.png}
+	\end{center}
+	
+	We can take a look at the counts and the relative frequencies for the 
+
+	
+	\section{Logistic Regression Model}
+	
+	\section{Feed Forward Neural Network Model}
+	
+	\section{Model Comparison \& Evaluation}
+	
+	\section{Future Decision Making}
+	
+	\subsection{Previous Customers \& Bias}
+	
+	\subsection{Explaining Model Decisions}
 	
 \end{document}	
