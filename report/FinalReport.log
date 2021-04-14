@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7250 64-bit) (preloaded format=pdflatex 2020.9.27)  13 APR 2021 16:50
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7250 64-bit) (preloaded format=pdflatex 2020.9.27)  14 APR 2021 17:11
 entering extended mode
 **./FinalReport.tex
 (FinalReport.tex
@@ -95,21 +95,28 @@ Package: verbatim 2019/11/10 v1.5r LaTeX2e package for verbatim enhancements
 \every@verbatim=\toks16
 \verbatim@line=\toks17
 \verbatim@in@stream=\read1
-) (FinalReport.aux)
+)
+(C:\Users\Ayush\AppData\Roaming\MiKTeX\2.9\tex/latex/appendix\appendix.sty
+Package: appendix 2020/02/08 v1.2c extra appendix facilities
+\c@@pps=\count95
+\c@@ppsavesec=\count96
+\c@@ppsaveapp=\count97
+)
+(FinalReport.aux)
 \openout1 = `FinalReport.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -147,16 +154,16 @@ LaTeX Font Info:    ... okay on input line 15.
 
 ("C:\Program Files\MiKTeX 2.9\tex/context/base/mkii\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count95
+\scratchcounter=\count98
 \scratchdimen=\dimen126
 \scratchbox=\box27
-\nofMPsegments=\count96
-\nofMParguments=\count97
+\nofMPsegments=\count99
+\nofMParguments=\count100
 \everyMPshowfont=\toks18
-\MPscratchCnt=\count98
+\MPscratchCnt=\count101
 \MPscratchDim=\dimen127
-\MPnumerator=\count99
-\makeMPintoPDFobject=\count100
+\MPnumerator=\count102
+\makeMPintoPDFobject=\count103
 \everyMPtoPDFconversion=\toks19
 ) ("C:\Program Files\MiKTeX 2.9\tex/latex/epstopdf-pkg\epstopdf-base.sty"
 Package: epstopdf-base 2019/11/24 v2.7 Base part for package epstopdf
@@ -200,9 +207,9 @@ G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 460.
 )
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <14.4> on input line 17.
+(Font)              <14.4> on input line 18.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 17.
+(Font)              <7> on input line 18.
 
 (FinalReport.toc
 LaTeX Font Info:    External font `cmex10' loaded for size
@@ -219,42 +226,85 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 
 {C:/Users/Ayush/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] (numerical.
 tex)
-Overfull \hbox (45.68576pt too wide) in paragraph at lines 1--31
+Overfull \hbox (45.68576pt too wide) in paragraph at lines 1--32
 [][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1--31
+Underfull \hbox (badness 10000) in paragraph at lines 1--32
 
  []
 
 <../notebooks/dist.png, id=8, 2890.8pt x 2890.8pt>
 File: ../notebooks/dist.png Graphic file (type png)
 <use ../notebooks/dist.png>
-Package pdftex.def Info: ../notebooks/dist.png  used on input line 35.
+Package pdftex.def Info: ../notebooks/dist.png  used on input line 36.
 (pdftex.def)             Requested size: 433.6013pt x 433.6013pt.
 [2]
-<../notebooks/counts.png, id=13, 2890.8pt x 1445.4pt>
+<../notebooks/CorMat.png, id=13, 1156.32pt x 1156.32pt>
+File: ../notebooks/CorMat.png Graphic file (type png)
+<use ../notebooks/CorMat.png>
+Package pdftex.def Info: ../notebooks/CorMat.png  used on input line 43.
+(pdftex.def)             Requested size: 346.89868pt x 346.89868pt.
+ [3 <../notebooks/dist.png>]
+<../notebooks/counts.png, id=18, 2890.8pt x 1445.4pt>
 File: ../notebooks/counts.png Graphic file (type png)
 <use ../notebooks/counts.png>
-Package pdftex.def Info: ../notebooks/counts.png  used on input line 44.
+Package pdftex.def Info: ../notebooks/counts.png  used on input line 51.
 (pdftex.def)             Requested size: 433.6013pt x 216.80064pt.
- [3 <../notebooks/dist.png>] [4 <../notebooks/counts.png>] (FinalReport.aux) ) 
+ [4 <../notebooks/CorMat.png>]
+<../notebooks/states.png, id=23, 3613.5pt x 2168.1pt>
+File: ../notebooks/states.png Graphic file (type png)
+<use ../notebooks/states.png>
+Package pdftex.def Info: ../notebooks/states.png  used on input line 60.
+(pdftex.def)             Requested size: 542.00162pt x 325.20097pt.
+
+Overfull \hbox (36.11162pt too wide) in paragraph at lines 60--61
+ [] 
+ []
+
+[5 <../notebooks/counts.png>] [6 <../notebooks/states.png>] [7]
+<../notebooks/precisionvsthreshold.png, id=37, 722.7pt x 542.025pt>
+File: ../notebooks/precisionvsthreshold.png Graphic file (type png)
+<use ../notebooks/precisionvsthreshold.png>
+Package pdftex.def Info: ../notebooks/precisionvsthreshold.png  used on input l
+ine 115.
+(pdftex.def)             Requested size: 289.07487pt x 216.80615pt.
+<../notebooks/pr_curve_lr.png, id=38, 722.7pt x 542.025pt>
+File: ../notebooks/pr_curve_lr.png Graphic file (type png)
+<use ../notebooks/pr_curve_lr.png>
+Package pdftex.def Info: ../notebooks/pr_curve_lr.png  used on input line 121.
+(pdftex.def)             Requested size: 289.07487pt x 216.80615pt.
+ [8 <../notebooks/precisionvsthreshold.png>] [9 <../notebooks/pr_curve_lr.png>]
+<../notebooks/nn_width.png, id=51, 1084.05pt x 722.7pt>
+File: ../notebooks/nn_width.png Graphic file (type png)
+<use ../notebooks/nn_width.png>
+Package pdftex.def Info: ../notebooks/nn_width.png  used on input line 169.
+(pdftex.def)             Requested size: 433.61232pt x 289.07487pt.
+ [10 <../notebooks/nn_width.png>] (coef.tex) [11]
+Overfull \vbox (0.79167pt too high) has occurred while \output is active []
+
+
+[12] (FinalReport.aux) ) 
 Here is how much of TeX's memory you used:
- 2122 strings out of 492484
- 30737 string characters out of 3130515
- 105752 words of memory out of 3000000
- 6449 multiletter control sequences out of 15000+200000
- 8808 words of font info for 31 fonts, out of 3000000 for 9000
+ 2261 strings out of 492484
+ 33170 string characters out of 3130515
+ 107140 words of memory out of 3000000
+ 6576 multiletter control sequences out of 15000+200000
+ 8977 words of font info for 32 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 51i,7n,32p,639b,189s stack positions out of 5000i,500n,10000p,200000b,50000s
-<
-C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Progr
-am Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/
-MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb>
-Output written on FinalReport.pdf (4 pages, 2731123 bytes).
+ 51i,7n,32p,1205b,189s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfont
+s/cm/cmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmm
+i12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><
+C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Progra
+m Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program Files/M
+iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/
+fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
+pe1/public/amsfonts/cm/cmtt12.pfb>
+Output written on FinalReport.pdf (12 pages, 6962741 bytes).
 PDF statistics:
- 32 PDF objects out of 1000 (max. 8388607)
+ 88 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 11 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 36 words of extra memory for PDF output out of 10000 (max. 10000000)
 

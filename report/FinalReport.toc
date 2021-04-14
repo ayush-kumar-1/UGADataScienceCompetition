@@ -1,9 +1,17 @@
 \contentsline {section}{\numberline {1}Exploratory Data Analysis and Preprocessing}{2}%
 \contentsline {subsection}{\numberline {1.1}Summary Statistics for Continuous Variables}{2}%
-\contentsline {subsection}{\numberline {1.2}Summary Statistics for Categorical Variables}{4}%
-\contentsline {section}{\numberline {2}Logistic Regression Model}{4}%
-\contentsline {section}{\numberline {3}Feed Forward Neural Network Model}{4}%
-\contentsline {section}{\numberline {4}Model Comparison \& Evaluation}{4}%
-\contentsline {section}{\numberline {5}Future Decision Making}{4}%
-\contentsline {subsection}{\numberline {5.1}Previous Customers \& Bias}{4}%
-\contentsline {subsection}{\numberline {5.2}Explaining Model Decisions}{4}%
+\contentsline {subsection}{\numberline {1.2}Summary Statistics for Categorical Variables}{5}%
+\contentsline {subsection}{\numberline {1.3}Model Selection}{6}%
+\contentsline {subsection}{\numberline {1.4}Preprocessing Transforms}{6}%
+\contentsline {section}{\numberline {2}Logistic Regression Model}{7}%
+\contentsline {subsection}{\numberline {2.1}Baseline Model}{7}%
+\contentsline {subsection}{\numberline {2.2}Tuning Decision Boundary}{7}%
+\contentsline {section}{\numberline {3}Feed Forward Neural Network Model}{9}%
+\contentsline {subsection}{\numberline {3.1}Initial Model}{9}%
+\contentsline {subsection}{\numberline {3.2}Tuning Model Width}{10}%
+\contentsline {subsection}{\numberline {3.3}Model Stability}{11}%
+\contentsline {subsection}{\numberline {3.4}Comparison with Logistic Regression}{12}%
+\contentsline {section}{\numberline {4}Future Decision Making}{12}%
+\contentsline {subsection}{\numberline {4.1}Previous Customers \& Bias}{12}%
+\contentsline {subsection}{\numberline {4.2}Explaining Model Decisions}{12}%
+\contentsline {section}{\numberline {A}Logistic Regression Interpretation of Coefficients}{12}%

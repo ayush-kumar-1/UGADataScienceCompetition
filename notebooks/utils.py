@@ -25,7 +25,19 @@ def load_data(path, as_df = False):
         df[state_code] = (df["States"] == state_code).astype('int64')
         
     df = df.drop("States", axis = 1)
+    #Undergoing similar process for other dummy variables 
+    dummys = ["non_mtg_acc_past_due_12_months_num", 
+            "non_mtg_acc_past_due_6_months_num", 
+            "card_open_36_month_num", 
+            "auto_open_ 36_month_num"]
 
+    for var in dummys: 
+        for level in df[var].unique()[1:]: 
+            name = var + "==" + str(level)
+            df[name] = (df[var] == level).astype('int64') 
+        
+        df = df.drop(var, axis = 1)
+        
     if as_df: 
         return df
 
@@ -33,7 +45,6 @@ def load_data(path, as_df = False):
     y = df["Default_ind"].to_numpy()
     
     return X, y
-
 
 def decide(y_prob, threshold = 0.5): 
     """

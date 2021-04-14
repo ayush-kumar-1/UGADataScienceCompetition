@@ -37,7 +37,7 @@ class log_reg():
 
 class feed_forward(): 
     
-    def __init__(self, data, response): 
+    def __init__(self, data, response, width = 32): 
         """
         Initializes a feed_forward nueral network for this 
         specfic problem of credit classification. 
@@ -49,7 +49,7 @@ class feed_forward():
         """
         self.x = data 
         self.y = response 
-        self.model = feed_forward.build_model(self.x, self.y)
+        self.model = feed_forward.build_model(self.x, self.y, width=width)
         
         
     def build_model(x, y, suppress = False, width = 20): 
@@ -81,7 +81,7 @@ class feed_forward():
         Trains the model for a certain number of epochs. Default 
         is 20. 
         """
-        self.model.fit(self.x, self.y, epochs = epochs, verbose = 1)
+        self.model.fit(self.x, self.y, epochs = epochs, verbose = 0)
         
         
     def predict(self, x): 
