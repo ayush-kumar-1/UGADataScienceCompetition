@@ -173,11 +173,54 @@
 	\subsection{Model Stability}
 	
 	To ensure model stability we are training our feed forward neural network 100 times over 100 epochs and then checking the distribution of precision and recall scores to ensure that our model is stable. 
+		
+	\begin{center}
+ 		\includegraphics[scale=0.4]{../notebooks/StableNetwork.png}
+	\end{center}
 	
+	After running 100 networks for 100 epochs we find that we have indeed reached a stable network. Furthermore there is even more good news as we can see that recall scores are on average much higher than the recall scores from the logistic regression. Here is the performance report for a network trained for 100 epochs. 
 	
+	\begin{tabular}{c|c|c|c|c|c}
+		\hline
+		& 		& 	precision &  recall  & f1-score   & support \\ \hline
+		
+		&  0.0	&		0.95 &     0.99   &  0.97   &  4599 \\ \hline
+		&  1.0  &		0.69 &     0.34   &  0.46   &   401 \\ \hline
+		
+		accuracy    & & & &                       		  0.93   &   5000 \\ \hline
+		macro avg   & &   			0.82   &   0.67  &    0.71   &   5000  \\ \hline
+		weighted avg  & &   		0.92   &   0.93  &    0.92   &   5000 \\ \hline
+	\end{tabular}
 
+	This is extremely promising and is almost outperforming our tuned logistic regression model without taking a look at the precision recall curve. The next step in analysis for the feed forward network is to of course try to tune the decision boundary to maximize recall while making minimum sacrifices to our precision. 
+	
+	\subsection{Tuning Decision Boundary }
+	
+	\begin{center}
+		\includegraphics[scale=0.3]{../notebooks/pr_curve_nn.png}
+		\includegraphics[scale=0.3]{../notebooks/precisionvsthreshold_nn.png}
+	\end{center}
+	
+	Taking a look at the two graphs  we can see very similar behavior when it comes to the Precision vs. Threshold graph in comparison to the logistic regression model, but the precision recall curve seems to be much more promising when it comes to our neural network. Looking at the curve the tuning precision of 0.55 seems to be a good sacrifice as the precision recall curve is quite steep. This yields a decision boundary of 0.2602 and the following evaluation: 
+	
+	\begin{tabular}{c|c|c|c|c|c}
+		\hline
+		& 		& 	precision &  recall  & f1-score   & support \\ \hline
+		
+		&  0.0	&		0.95 &     0.98   &  0.96   &  4599 \\ \hline
+		&  1.0  &		0.62 &     0.38   &  0.47   &   401 \\ \hline
+		
+		accuracy    & & & &                       		  0.93   &   5000 \\ \hline
+		macro avg   & &   			0.78   &   0.68  &    0.72   &   5000  \\ \hline
+		weighted avg  & &   		0.92   &   0.93  &    0.92   &   5000 \\ \hline
+	\end{tabular}
+	
+	Beyond this point improving recall requires a much greater sacrifice in precision and it will not be in the firm's interest to go beyond this decision boundary. 
 	
 	\subsection{Comparison with Logistic Regression}
+	
+	When we compare the best statistics we were able to get from both the neural network and logistic regression after tuning the decision boundary we arrive at models that perform much the same in most regards. In fact the differences between the two models end up being so small that they could not be said to be statistically significant; however, when it comes to untuned models the neural network far outperforms the logistic regression model, and the untuned version may in fact be a better compromise than the tuned version of the network. For this reason, the model our team recommends for further study and potential future use is the stable, untuned feed-forward neural network. The disadvantage of this model is the high training times, and the potential black box nature. To effectively arrive at reasoning we will have to run multiple observations through the model and observe differences, there is no direct interpretation of the results that can be had from the neural network coefficients and parameters. 
+	
 	
 	\section{Future Decision Making}
 	

@@ -10,8 +10,9 @@
 \contentsline {subsection}{\numberline {3.1}Initial Model}{9}%
 \contentsline {subsection}{\numberline {3.2}Tuning Model Width}{10}%
 \contentsline {subsection}{\numberline {3.3}Model Stability}{11}%
-\contentsline {subsection}{\numberline {3.4}Comparison with Logistic Regression}{12}%
-\contentsline {section}{\numberline {4}Future Decision Making}{12}%
-\contentsline {subsection}{\numberline {4.1}Previous Customers \& Bias}{12}%
-\contentsline {subsection}{\numberline {4.2}Explaining Model Decisions}{12}%
-\contentsline {section}{\numberline {A}Logistic Regression Interpretation of Coefficients}{12}%
+\contentsline {subsection}{\numberline {3.4}Tuning Decision Boundary }{12}%
+\contentsline {subsection}{\numberline {3.5}Comparison with Logistic Regression}{13}%
+\contentsline {section}{\numberline {4}Future Decision Making}{13}%
+\contentsline {subsection}{\numberline {4.1}Previous Customers \& Bias}{13}%
+\contentsline {subsection}{\numberline {4.2}Explaining Model Decisions}{13}%
+\contentsline {section}{\numberline {A}Logistic Regression Interpretation of Coefficients}{13}%
