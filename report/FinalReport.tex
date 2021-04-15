@@ -23,27 +23,27 @@
 	
 	\subsection{Summary Statistics for Continuous Variables}
 	
-	We begin our exploratory data analysis by looking into the data, and determining the type of the data for each column. For continuous numerical data, we want to visualize the distribution using histograms as well as taking a look at the following summary statistics: mean, standard deviation, the minimum and the maximum. For the categorical data we want to take a look at the possible categories, and the frequency of each category. 
+	We begin our exploratory data analysis by looking into the data and determining the type of the data for each column. For continuous numerical data, we want to visualize the distribution using histograms as well as taking a look at the following summary statistics: mean, standard deviation, minimum, and maximum. For the categorical data we want to take a look at the possible categories, and the frequency of each category. 
 	
 	Using pandas and the information sheet here are the numerical variables: 
 	
 
 	\input{numerical.tex}
 	
-	By looking at the descriptive statistics we can see if there are any major outliers, and determine how we can use these variables in our data. We see that minimum and maximum values for many of the continuous variable are very extreme for Total Credit Debt, Average Credit Debt, and Credit past due amount. We also see that many variables seem to have very similar distributions, which may be a problem in regards to multi-collinearity. To investigate this we can create a correlation matrix and re-scale certain variables to try to preserve information, while combating multi-collinearity. 
+	By looking at the descriptive statistics we can see if there are any major outliers and determine how we can use these variables in our data. We see that minimum and maximum values for many of the continuous variable are very extreme for Total Credit Debt, Average Credit Debt, and Credit past due amount. We also see that many variables seem to have very similar distributions, which may be a problem in regards to multi-collinearity. To investigate this we can create a correlation matrix and re-scale certain variables to try to preserve information, while combating multi-collinearity. 
 	
 	\begin{center}
 			\includegraphics[scale = 0.15]{../notebooks/dist.png}
 	\end{center}
 
 
-	Looking at the histogram gives us a better picture of the distributions of the variables because it allows us to visualize the shapes of the variables. We can see that the outliers for Average Credit Debt are seriously impacting the distribution in comparison to Total Credit Debt. This visualization also allows us to look at some variables which by their description seem to be numerical, but display behavior that is more characteristic of categorical variables. Variables like the number of mortgages past due or non-mortgages past due would be better suited to being dummy variables rather than continuous ones. 
+	Looking at the histogram gives us a better picture of the variables' distributions because it allows us to visualize the shapes of the distributions. We can see that the outliers for Average Credit Debt are seriously impacting the distribution in comparison to Total Credit Debt. This visualization also allows us to look at some variables whose descriptions seem to be numerical, but display behavior that is more categorical in nature. Variables like the number of mortgages past due or non-mortgages past due would be better suited to being dummy variables rather than continuous ones. 
 	
 	\begin{center}
 		\includegraphics[scale = 0.3]{../notebooks/CorMat.png}
 	\end{center}
 	
-	Taking a look at the correlation matrix we can see multiple points of high collinearity between variables that are similar in nature due to the time that they are recorded or other inherent similarities. Based on this correlation matrix we can see that some of the variables may need to be rescaled to preserve as much information as possible, but bring down the high collinearity. Another approach would be to carry on with all the variables and not put too much stock into the individual variable t-tests and instead focus on joint F-tests and ensure that the variables are being properly captured. 
+	Taking a look at the correlation matrix we can see multiple points of high collinearity between variables that are similar in nature due to the time that they are recorded or other inherent similarities. Based on this correlation matrix we can see that some of the variables may need to be rescaled to preserve as much information as possible, but bring down the high collinearity. Another approach would be to carry on with all the variables, not putting too much stock into the individual variable t-tests but instead focusing on joint F-tests and ensure that the variables are being properly captured. 
 	
 	\subsection{Summary Statistics for Categorical Variables}
 	
@@ -51,10 +51,10 @@
 		\includegraphics[scale=0.15]{../notebooks/counts.png}
 	\end{center}
 	
-	We can take a look at the counts and the relative frequencies for the variables and make some observations. For many of these variables it would be wise 
-	to make multiple dummy variables to allow for better predictive models. States and card\_open\_36\_month\_num should be split into multiple variables for the models. The other variables are either in a form that already mimics a dummy variable, or they can easily be converted into 0 or 1 dummy variables because given the small frequency numbers higher than one appear it would be superfluous to have multiple dummy variables for the different variables. Further analysis is required for the State dummy variables because there need to be substantial differences between the different states to add them as dummy variables. 
+	We can make some observations by taking a look at the counts and the relative frequencies for the variables. For many of these variables it would be wise 
+to make multiple dummy variables to allow for better predictive models. States and card\_open\_36\_month\_num should be split into multiple variables for the models. The other variables are either already in a form that mimics a dummy variable, or they can easily be converted into 0 or 1 dummy variables because, given the small frequency, it appears to be superfluous to have multiple dummy variables for the different variables for numbers higher than one. Further analysis is required for the State dummy variables because there need to be substantial differences between the different states to add them as dummy variables. 
 	
-	The analysis we choose for adding state dummy variables is to simply take a look a random sample of observations and plot a subset of two variables that are representative of the data available and plot them by state. Based on the graphs on page 5 we can see that there are some patterns however weak in the data and we should take them into account when building the model. The significance of the state dummy variables can be assessed at a later time after the models have been built. 
+	The analysis we choose for adding State dummy variables is to simply take a look a random sample of observations, plot a subset of two variables that are representative of the data available, and plot them by state. Based on the graphs on page 5 we can see that there are some patterns however weak in the data, and we should take them into account when building the model. The significance of the State dummy variables can be assessed at a later time after the models have been built. 
 	
 	\begin{center}
 		\includegraphics[scale = 0.15]{../notebooks/states.png}	
@@ -62,13 +62,13 @@
 	
 	\subsection{Model Selection}
 	
-	In addition to the Logistic Regression we were asked to choose between a Feed-Forward Neural Network, a Random Forest Classifier, or XGBoost. Due to the high number of possible interaction effects as well as the high number of continuous variables our team has opted to use the Feed-Forward Neural Network. These networks can be useful because they allow for a very high number of interaction effects without extensive testing. We will use a sigmoid function as our last response function to ensure the model output is similar to the output of the logistic regression.
+	In addition to the Logistic Regression we were asked to choose between a Feed-Forward Neural Network, a Random Forest Classifier, or XGBoost. Due to the high number of possible interaction effects as well as the high number of continuous variables, our team has opted to use the Feed-Forward Neural Network. These networks can be useful because they allow for a very high number of interaction effects without extensive testing. We will use a sigmoid function as our last response function to ensure the model output is similar to the output of the logistic regression.
 	
-	Another challenge in model building will be the relatively low number of observations that do default on their credit debt. This makes it extraordinarily difficult to make sure our models are genuine improvements over the baseline model of predicting 0 for every observations. This baseline model has an accuracy of 92\% so it will be important that we do not over-depend on accuracy as a measure of model fit. Precision, recall, and f1-scores will be much better indicator of model fit, and should be used when tuning hyper-parameters. 
+	Another challenge in model building will be the relatively low number of observations that do default on their credit debt. This makes it extraordinarily difficult to make sure our models are genuine improvements over the baseline model of predicting 0 for every observation. This baseline model has an accuracy of 92\% so it will be important that we don't over-depend on accuracy as a measure of model fit. Precision, recall, and f1-scores will be much better indicator of model fit, and should be used when tuning hyper-parameters. 
 	
 	\subsection{Preprocessing Transforms}
 	
-	We will be using data in numpy arrays, but first we must overcome some of the challenges of this approach. We must have numerical data for every observation, and there can be no missing values or the logistic regression model will not function properly. Our \verb|load_data(path: String): X, y| function will conduct the following transforms on the data to prepare it for model use. 
+	We will be using data in numpy arrays, so we must first overcome some of the challenges of this approach. We must have numerical data for every observation, and there can be no missing values or the logistic regression model will not function properly. Our \verb|load_data(path: String): X, y| function will conduct the following transforms on the data to prepare it for model use. 
 	
 	\begin{enumerate}
 		\item Import data from a csv into a pandas dataframe
@@ -81,7 +81,7 @@
 	
 	\subsection{Baseline Model}
 	
-	Using the preprocessed data as discussed above we trained a logistic regression model from sklearn without tuning any hyper parameters. 
+	Using the preprocessed data as discussed above, we trained a logistic regression model from sklearn without tuning any hyper parameters. 
 	The following were the model coefficients and performance statistics on the testing dataset. 
 	
 
@@ -97,31 +97,31 @@
 			weighted avg  & &   			0.92   &   0.93  &    0.91   &   5000 \\ \hline
 	\end{tabular}					
 
-	The coefficients and interpretation of them is available in Appendix A. The scores can help us assess model performance. The initial news seems to be good with an overall accuracy of 93\%, but this is only marginal better than baseline model. The precision of the model is also ok with a score of 0.92. This means that of all the observations identified by the model as clients who will default we are correct around 72\% of the time. The worrisome part of this model is the recall. A recall of 0.20 implies that we are missing nearly 4/5 of all clients who will end up defaulting. In other words this model is extremely good at identifying that a client will NOT default, but in the process misses a lot of clients who will default. This is all assuming a decision boundary of 0.5, which we will be optimizing. If the firm wants to minimize default risk it will have to increase the decision boundary, and if a firm wants to maximize the amount of credit they are lending the decision boundary should be decreased. Our team believes that defaults are much more costly, and we should try to tune the decision boundary in  way that is beneficial to the end goal of reducing defaults. 
+	The coefficients and interpretations of them are available in Appendix A. The scores can help us assess model performance. The initial news seems to be good with an overall accuracy of 93\%, but this is only marginally better than baseline model. In addition, the precision of the model is ok with a score of 0.92. This means that, of all the observations identified by the model as clients who will default, we are correct around 72\% of the time. The worrisome part of this model is the recall: a recall of 0.20 implies that we are missing nearly 4/5 of all clients who will end up defaulting. In other words, this model is extremely good at identifying that a client will NOT default, but will miss a lot of clients who will default. This is all assuming a decision boundary of 0.5, which we will be optimizing. If the firm wants to minimize default risk, it will have to increase the decision boundary, and if a firm wants to maximize the amount of credit they are lending, the decision boundary should be decreased. Our team believes that defaults are much more costly, and we should try to tune the decision boundary in  way that is beneficial to the end goal of reducing defaults. 
 	
-	It should also be noted that for a logistic regression we can directly interpret the variables and the effect they will have on the overall model. This will be discussed in greater detail in the explanation section of the report.
+	It should also be noted that, for a logistic regression, we can directly interpret the variables and the effect they will have on the overall model. This will be discussed in greater detail in the explanation section of the report.
 
 	\subsection{Tuning Decision Boundary}
 	
-	We will be using an algorithm that tries to maximize recall while ensuring that precision does not fall below a certain level. We will be able to test multiple values of the level we want to let the precision fall down to. We will be using a variable learning rate that decreases in a reciprocal fashion every iteration. We will be updating the decision boundary by subtracting the previous boundary times the learning rate for that iteration. 
+	We will be using an algorithm that tries to maximize recall while ensuring that precision does not fall below a certain level. In doing this we will be able to test multiple values of the level we want to let the precision fall down to. We will be using a variable learning rate that decreases in a reciprocal fashion every iteration, and update the decision boundary by subtracting the previous boundary times the learning rate for that iteration. 
 	
 	$$ \eta_{t+1} = \eta_0/t $$ 
 	
 	$$ threshold_{t+1} = threshold_t*eta_t $$
 	
-	This is to ensure that we arrive at a decision boundary that converges. The method signature is as follows: \verb|tune_threshold(y, yhat, eta, plev): Double|. The plev is the level of precision we are willing to go down to and by generating many thresholds at different levels of precision we will be able to generate graphs of where the ideal decision boundary may lie. We assume an initial threshold of 0.5 and we will tune from there. Using this algorithm our group tested every precision between 0 and 1 with an increment of 0.1 and plotted the results. 
+	This is to ensure that we arrive at a decision boundary that converges. The method signature is as follows: \verb|tune_threshold(y, yhat, eta, plev): Double|. The plev is the level of precision we are willing to go down to, and by generating many thresholds at different levels of precision we will be able to generate graphs of where the ideal decision boundary may lie. We assume an initial threshold of 0.5 and tune from there. Using this algorithm our group tested every precision between 0 and 1 with an increment of 0.1 and plotted the results. 
 	
 	\begin{center}
 		\includegraphics[scale = 0.4]{../notebooks/precisionvsthreshold.png}
 	\end{center}
 	
-	Based on the results it seems that precision is not very sensitive for most values between 0.6 and 1.0 and between 0.0 and 0.6. This behavior is indicative of the precision recall trade-off in our model. To have an substantial gains of recall we would have to expand the number of applications the model will reject be quite a heavy amount. We can see that in the following precision and recall curve for our logistic regression model. 
+	Based on the results it seems that precision is not very sensitive for most values between 0.6 and 1.0 and between 0.0 and 0.6. This behavior is indicative of the precision recall trade-off in our model. To have an substantial gains of recall we would have to expand the number of applications the model will reject by quite a heavy amount. We can see that in the following precision and recall curve for our logistic regression model. 
 	
 	\begin{center}
 		\includegraphics[scale=0.4]{../notebooks/pr_curve_lr.png}
 	\end{center}
 
-	We see much of the same behavior we expected from our initial analysis of the precision-threshold curve. Around a precision of 0.5 we begin to see a substantial gain of recall at the cost of precision. Based on this our team recommends using a decision boundary based on preserving a precision of 0.5 and attempting to get much recall as we can. This will reduce our overall accuracy, but ensure that we catch more people who are likely to default on their credit loans minimizing the risk to the firm. This decision boundary for precision level of 0.5 happens to be 0.1514. Here is a summary of model fit after using this decision boundary on the test dataset. The decision boundary was tuned using the validation dataset. 
+	We see much of the same behavior we expected from our initial analysis of the precision-threshold curve. Around a precision of 0.5 we begin to see a substantial gain of recall at the cost of precision. Based on this, our team recommends using a decision boundary based on preserving a precision of 0.5, and attempting to get much recall as possible. This will reduce our overall accuracy, but ensure that we catch more people who are likely to default on their credit loans, minimizing the risk to the firm. This decision boundary for precision level of 0.5 happens to be 0.1514. Here is a summary of model fit after using this decision boundary on the test dataset. The decision boundary was tuned using the validation dataset. 
 	
 	
 	\begin{tabular}{c|c|c|c|c|c}
@@ -158,7 +158,7 @@
 	weighted avg  & &   		0.92   &   0.93  &    0.91   &   5000 \\ \hline
 	\end{tabular}
 	
-	Our initial model has a similar problem to the original logistic regression, but before be begin tuning the decision curve, we can make adjustments to the model architecture. 
+	Our initial model has a similar problem to the original logistic regression, but before we begin tuning the decision curve we can make adjustments to the model architecture. 
 	
 	
 	\subsection{Model Stability}
@@ -183,17 +183,17 @@
 		weighted avg  & &   		0.92   &   0.93  &    0.92   &   5000 \\ \hline
 	\end{tabular}
 	
-	This is extremely promising and is almost outperforming our tuned logistic regression model without taking a look at the precision recall curve. The next step in analysis for the feed forward network is to of course try to tune the decision boundary to maximize recall while making minimum sacrifices to our precision. 
+	This is extremely promising and is almost outperforming our tuned logistic regression model without taking a look at the precision recall curve. The next step in analysis for the feed forward network is, of course, trying to tune the decision boundary to maximize recall while making minimum sacrifices to our precision. 
 	
 	\subsection{Tuning Model Width}
 	
 	
-	The first item to consider is the complexity of the model. We may be over or under parameterize, and this can be tuned by simply changing the number of elements in the hidden node. Here are graphs of precision, recall, and accuracy, as we change the number of nodes in the hidden layer. 
+	The first item to consider is the complexity of the model. We may be over or under parameterized, and this can be tuned by simply changing the number of elements in the hidden node. Here are graphs of precision, recall, and accuracy, as we change the number of nodes in the hidden layer. 
 	
 	
 	\includegraphics[scale=0.4]{../notebooks/nn_width.png}
 	
-	It seems that there is no tangible benefit to increasing the model complexity past the point that we currently have it. Our metrics seem to be very stable at their level. 
+	It seems that there is no tangible benefit to increasing the model complexity past the point we currently have it at. Our metrics seem to be very stable at their level. 
 	
 	
 	\subsection{Tuning Decision Boundary }
@@ -203,7 +203,7 @@
 		\includegraphics[scale=0.3]{../notebooks/precisionvsthreshold_nn.png}
 	\end{center}
 	
-	Taking a look at the two graphs  we can see very similar behavior when it comes to the Precision vs. Threshold graph in comparison to the logistic regression model, but the precision recall curve seems to be much more promising when it comes to our neural network. Looking at the curve the tuning precision of 0.55 seems to be a good sacrifice as the precision recall curve is quite steep. This yields a decision boundary of 0.2602 and the following evaluation: 
+	Taking a look at the two graphs, we can see very similar behavior when it comes to the Precision vs. Threshold graph in comparison to the logistic regression model, but the precision recall curve seems to be much more promising when it comes to our neural network. Looking at the curve the tuning precision of 0.55 seems to be a good sacrifice as the precision recall curve is quite steep. This yields a decision boundary of 0.2602 and the following evaluation: 
 	
 	\begin{tabular}{c|c|c|c|c|c}
 		\hline
@@ -217,11 +217,11 @@
 		weighted avg  & &   		0.92   &   0.93  &    0.92   &   5000 \\ \hline
 	\end{tabular}
 	
-	Beyond this point improving recall requires a much greater sacrifice in precision and it will not be in the firm's interest to go beyond this decision boundary. 
+	Beyond this point, improving recall requires a much greater sacrifice in precision and it will not be in the firm's interest to go beyond this decision boundary. 
 	
 	\subsection{Comparison with Logistic Regression}
 	
-	When we compare the best statistics we were able to get from both the neural network and logistic regression after tuning the decision boundary we arrive at models that perform much the same in most regards. In fact the differences between the two models end up being so small that they could not be said to be statistically significant; however, when it comes to untuned models the neural network far outperforms the logistic regression model, and the untuned version may in fact be a better compromise than the tuned version of the network. For this reason, the model our team recommends for further study and potential future use is the stable, untuned feed-forward neural network. The disadvantage of this model is the high training times, and the potential black box nature. To effectively arrive at reasoning we will have to run multiple observations through the model and observe differences, there is no direct interpretation of the results that can be had from the neural network coefficients and parameters. 
+	When we compare the best statistics we were able to get from both the neural network and logistic regression after tuning the decision boundary we arrive at models that perform essentially the same in most regards. In fact, the differences between the two models end up being so small that they could not be said to be statistically significant; however, when it comes to untuned models the neural network far outperforms the logistic regression model. The untuned version may in fact be a better compromise than the tuned version of the network. For this reason, the model our team recommends for further study and potential future use is the stable, untuned feed-forward neural network. The disadvantage of this model is the high training times, and the potential black box nature. To effectively arrive at reasoning we will have to run multiple observations through the model and observe differences, as there are no direct interpretations of the results that can be had from the neural network coefficients and parameters. 
 	
 	
 	\section{Future Decision Making}
@@ -230,21 +230,21 @@
 	
 
 	\subsection{Explaining Model Decisions}
-	Using the approach of tracking changes from the mean we must first come up with the mean probability for someone who is precisely average. Here we can see that the mean probability is 0.2139 this can be seen as the average risk. Assuming we know nothing about a customer this is the risk that they will default on their credit debt. By tracking changes one at a time and comparing it one at at time we can come up with analysis on how a decision was made. Take these sample observations on page 14 as an example.
-	 Person45 defaulted on their payments, and person1 did not. We can take a look at the observations and see that Person45 was categorized as someone who would default because most of their observations were around the mean, but because of their high total credit debt and credit age they were presumed to be someone with a much higher risk to the firm. 
+	Using the approach of tracking changes from the mean, we must first come up with the mean probability for someone who is precisely average. Here we can see that the mean probability is 0.2139: this can be seen as the average risk. Assuming we know nothing about a customer, this is the risk that they will default on their credit debt. By tracking changes one at a time and comparing it one at at time we can come up with analysis on how a decision was made. Take these sample observations on page 14 as an example.
+	 Person45 defaulted on their payments, and person1 did not. We can take a look at the observations and see that Person45 was categorized as someone who would default, because most of their observations were around the mean but their high total credit debt and credit age caused them to be presumed as a much higher risk to the firm. 
 	 Person1 also has a high total credit debt and low credit age, but the rest of their observations are near the mean or below the mean which substantially lowers their risk to the firm. For this reason person1's credit was approved by the model, and person45's credit was not approved by the model. 
 	
 	\input{explain.tex}
 	
 	\subsection{Previous Customers \& Bias}
 	
-	We can use this approach to answer the question do people who an account with the bank have an advantage over people who do not have an account with the bank. One approach would be to create two synthetic datasets one with observations of 0 and another with observations with 1. Since most people do not have accounts with bank we can simply track the difference from the mean rather than do the costly process of trying to run over 5000 observations through our explanation function. Here are the results: 
+	We can use this approach to answer the question, 'do people who have an account with the bank have an advantage over people who do not have an account with the bank?' One approach would be to create two synthetic datasets: one with observations of 0 and another with observations with 1. Since most people do not have accounts with bank we can simply track the difference from the mean rather than do the costly process of trying to run over 5000 observations through our explanation function. Here are the results: 
 	
 	Average Risk for Normal Customer: 0.2139 
 	
 	Average Risk for Bank Customer: 0.2069
 	
-	It seems that there is indeed a difference between the assessed risk for a bank consumer and a normal consumer, but it does not seem to be substantial enough to be deemed significant. We could test the statistical significance by trying to run bootstrap with the neural network architecture and evaluate the distributions of these values multiple times over, but this approach is very computationally expensive and would take many hours on our team's machines. For this reason we are choosing to use our judgment and can say that there does not seem to be a significant difference between the assumed risk of a normal customer or a previous customer at the bank. 
+	It seems that there is indeed a difference between the assessed risk for a bank consumer and a normal consumer, but it does not seem to be substantial enough to be deemed significant. We could test the statistical significance by trying to run bootstrap with the neural network architecture and evaluate the distributions of these values multiple times over, but this approach is very computationally expensive and would take many hours on our team's machines. For this reason we are choosing to use our judgment, and can say that there does not seem to be a significant difference between the assumed risk of a normal customer or a previous customer at the bank. 
 	
 
 	
