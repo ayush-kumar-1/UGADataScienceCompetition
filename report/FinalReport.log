@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7250 64-bit) (preloaded format=pdflatex 2020.9.27)  14 APR 2021 18:31
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7250 64-bit) (preloaded format=pdflatex 2020.9.27)  14 APR 2021 21:04
 entering extended mode
 **./FinalReport.tex
 (FinalReport.tex
@@ -276,54 +276,51 @@ File: ../notebooks/pr_curve_lr.png Graphic file (type png)
 Package pdftex.def Info: ../notebooks/pr_curve_lr.png  used on input line 121.
 (pdftex.def)             Requested size: 289.07487pt x 216.80615pt.
  [8 <../notebooks/precisionvsthreshold.png>] [9 <../notebooks/pr_curve_lr.png>]
-<../notebooks/nn_width.png, id=51, 1084.05pt x 722.7pt>
-File: ../notebooks/nn_width.png Graphic file (type png)
-<use ../notebooks/nn_width.png>
-Package pdftex.def Info: ../notebooks/nn_width.png  used on input line 169.
-(pdftex.def)             Requested size: 433.61232pt x 289.07487pt.
- [10 <../notebooks/nn_width.png>]
-<../notebooks/StableNetwork.png, id=56, 1084.05pt x 722.7pt>
+<../notebooks/StableNetwork.png, id=51, 1084.05pt x 722.7pt>
 File: ../notebooks/StableNetwork.png Graphic file (type png)
 <use ../notebooks/StableNetwork.png>
-Package pdftex.def Info: ../notebooks/StableNetwork.png  used on input line 178
+Package pdftex.def Info: ../notebooks/StableNetwork.png  used on input line 169
 .
 (pdftex.def)             Requested size: 433.61232pt x 289.07487pt.
-<../notebooks/pr_curve_nn.png, id=57, 722.7pt x 722.7pt>
+ [10 <../notebooks/StableNetwork.png>]
+<../notebooks/nn_width.png, id=56, 1084.05pt x 722.7pt>
+File: ../notebooks/nn_width.png Graphic file (type png)
+<use ../notebooks/nn_width.png>
+Package pdftex.def Info: ../notebooks/nn_width.png  used on input line 194.
+(pdftex.def)             Requested size: 433.61232pt x 289.07487pt.
+<../notebooks/pr_curve_nn.png, id=57, 722.7pt x 542.025pt>
 File: ../notebooks/pr_curve_nn.png Graphic file (type png)
 <use ../notebooks/pr_curve_nn.png>
-Package pdftex.def Info: ../notebooks/pr_curve_nn.png  used on input line 200.
-(pdftex.def)             Requested size: 216.81166pt x 216.81166pt.
+Package pdftex.def Info: ../notebooks/pr_curve_nn.png  used on input line 202.
+(pdftex.def)             Requested size: 216.81166pt x 162.60875pt.
 <../notebooks/precisionvsthreshold_nn.png, id=58, 722.7pt x 542.025pt>
 File: ../notebooks/precisionvsthreshold_nn.png Graphic file (type png)
 <use ../notebooks/precisionvsthreshold_nn.png>
 Package pdftex.def Info: ../notebooks/precisionvsthreshold_nn.png  used on inpu
-t line 201.
+t line 203.
 (pdftex.def)             Requested size: 216.81166pt x 162.60875pt.
- [11 <../notebooks/StableNetwork.png>] (coef.tex) [12 <../notebooks/pr_curve_nn
-.png> <../notebooks/precisionvsthreshold_nn.png>]
-Overfull \vbox (0.79167pt too high) has occurred while \output is active []
-
-
-[13] (FinalReport.aux) ) 
+ [11 <../notebooks/nn_width.png>] [12 <../notebooks/pr_curve_nn.png> <../notebo
+oks/precisionvsthreshold_nn.png>] (explain.tex) [13]
+[14] [15] (FinalReport.aux) ) 
 Here is how much of TeX's memory you used:
  2279 strings out of 492484
- 33776 string characters out of 3130515
- 107140 words of memory out of 3000000
+ 33788 string characters out of 3130515
+ 109140 words of memory out of 3000000
  6591 multiletter control sequences out of 15000+200000
  8977 words of font info for 32 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  51i,7n,32p,1205b,189s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfont
-s/cm/cmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmm
-i12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><
-C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Progra
-m Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program Files/M
-iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX 2.9/
-fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
-pe1/public/amsfonts/cm/cmtt12.pfb>
-Output written on FinalReport.pdf (13 pages, 7029076 bytes).
+<C:/Program Files/MiKTeX 2.9/fonts/type1/public/am
+sfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/c
+m/cmmi12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.
+pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/P
+rogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program Fi
+les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX
+ 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fon
+ts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on FinalReport.pdf (15 pages, 6972256 bytes).
 PDF statistics:
- 98 PDF objects out of 1000 (max. 8388607)
+ 104 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  51 words of extra memory for PDF output out of 10000 (max. 10000000)
 

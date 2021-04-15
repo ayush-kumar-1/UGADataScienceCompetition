@@ -160,22 +160,13 @@
 	
 	Our initial model has a similar problem to the original logistic regression, but before be begin tuning the decision curve, we can make adjustments to the model architecture. 
 	
-	\subsection{Tuning Model Width}
-	
-	
-	The first item to consider is the complexity of the model. We may be over or under parameterize, and this can be tuned by simply changing the number of elements in the hidden node. Here are graphs of precision, recall, and accuracy, as we change the number of nodes in the hidden layer. 
-	
-	
-	\includegraphics[scale=0.4]{../notebooks/nn_width.png}
-	
-	The testing of model with different widths shows that the model is unstable, and that there are no real benefits to increasing model complexity. The most stable models were between 25-30 and so we will be sticking with 32 as the width for our model. The models were only trained for 25 epochs. We will be increasing the training time to ensure that our algorithms are generating stable models. 
 	
 	\subsection{Model Stability}
 	
 	To ensure model stability we are training our feed forward neural network 100 times over 100 epochs and then checking the distribution of precision and recall scores to ensure that our model is stable. 
-		
+	
 	\begin{center}
- 		\includegraphics[scale=0.4]{../notebooks/StableNetwork.png}
+		\includegraphics[scale=0.4]{../notebooks/StableNetwork.png}
 	\end{center}
 	
 	After running 100 networks for 100 epochs we find that we have indeed reached a stable network. Furthermore there is even more good news as we can see that recall scores are on average much higher than the recall scores from the logistic regression. Here is the performance report for a network trained for 100 epochs. 
@@ -191,8 +182,19 @@
 		macro avg   & &   			0.82   &   0.67  &    0.71   &   5000  \\ \hline
 		weighted avg  & &   		0.92   &   0.93  &    0.92   &   5000 \\ \hline
 	\end{tabular}
-
+	
 	This is extremely promising and is almost outperforming our tuned logistic regression model without taking a look at the precision recall curve. The next step in analysis for the feed forward network is to of course try to tune the decision boundary to maximize recall while making minimum sacrifices to our precision. 
+	
+	\subsection{Tuning Model Width}
+	
+	
+	The first item to consider is the complexity of the model. We may be over or under parameterize, and this can be tuned by simply changing the number of elements in the hidden node. Here are graphs of precision, recall, and accuracy, as we change the number of nodes in the hidden layer. 
+	
+	
+	\includegraphics[scale=0.4]{../notebooks/nn_width.png}
+	
+	It seems that there is no tangible benefit to increasing the model complexity past the point that we currently have it. Our metrics seem to be very stable at their level. 
+	
 	
 	\subsection{Tuning Decision Boundary }
 	
@@ -224,15 +226,26 @@
 	
 	\section{Future Decision Making}
 	
+	We will be using a simple but effective approach to explain the decision making process of neural network. This process involves running the mean values through the network, and then making a single change to a single observation and then comparing the results. By doing this for every variable between a given consumer and the mean consumer we can come up with explanations for the strongest reasons a consumer was accepted or denied for a credit card with the firm. We will use this approach for all consumers to try to answer the question of bias with previous consumers at our branch. 
+	
+
+	\subsection{Explaining Model Decisions}
+	Using the approach of tracking changes from the mean we must first come up with the mean probability for someone who is precisely average. Here we can see that the mean probability is 0.2139 this can be seen as the average risk. Assuming we know nothing about a customer this is the risk that they will default on their credit debt. By tracking changes one at a time and comparing it one at at time we can come up with analysis on how a decision was made. Take these sample observations on page 14 as an example.
+	 Person45 defaulted on their payments, and person1 did not. We can take a look at the observations and see that Person45 was categorized as someone who would default because most of their observations were around the mean, but because of their high total credit debt and credit age they were presumed to be someone with a much higher risk to the firm. 
+	 Person1 also has a high total credit debt and low credit age, but the rest of their observations are near the mean or below the mean which substantially lowers their risk to the firm. For this reason person1's credit was approved by the model, and person45's credit was not approved by the model. 
+	
+	\input{explain.tex}
+	
 	\subsection{Previous Customers \& Bias}
 	
-	\subsection{Explaining Model Decisions}
+	We can use this approach to answer the question do people who an account with the bank have an advantage over people who do not have an account with the bank. One approach would be to create two synthetic datasets one with observations of 0 and another with observations with 1. Since most people do not have accounts with bank we can simply track the difference from the mean rather than do the costly process of trying to run over 5000 observations through our explanation function. Here are the results: 
 	
+	Average Risk for Normal Customer: 0.2139 
 	
-	\appendix 
+	Average Risk for Bank Customer: 0.2069
 	
-	\section{Logistic Regression Interpretation of Coefficients}
+	It seems that there is indeed a difference between the assessed risk for a bank consumer and a normal consumer, but it does not seem to be substantial enough to be deemed significant. We could test the statistical significance by trying to run bootstrap with the neural network architecture and evaluate the distributions of these values multiple times over, but this approach is very computationally expensive and would take many hours on our team's machines. For this reason we are choosing to use our judgment and can say that there does not seem to be a significant difference between the assumed risk of a normal customer or a previous customer at the bank. 
 	
-	\input{coef.tex}
+
 	
 \end{document}	
