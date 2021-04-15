@@ -21,6 +21,21 @@
 	
 	\section{Exploratory Data Analysis and Preprocessing}
 	
+	\subsection{Software and Version Used}
+	The following software packages in their listed versions were used for data analysis. 
+	
+	\begin{tabular} {l r}
+			python version: &	 3.7.10 \\
+			numpy version: 	&	 1.19.2 \\
+			pandas version: &	 1.2.3 \\
+			matplotlib version: &	 3.3.4 \\
+			tensorflow version: &	 2.3.0 \\
+			scikit-learn version: & 	 0.24.1 \\
+			seaborn version: &	 0.11.1 \\
+	\end{tabular}
+	
+
+	
 	\subsection{Summary Statistics for Continuous Variables}
 	
 	We begin our exploratory data analysis by looking into the data and determining the type of the data for each column. For continuous numerical data, we want to visualize the distribution using histograms as well as taking a look at the following summary statistics: mean, standard deviation, minimum, and maximum. For the categorical data we want to take a look at the possible categories, and the frequency of each category. 
@@ -238,7 +253,7 @@ to make multiple dummy variables to allow for better predictive models. States a
 	
 	\subsection{Previous Customers \& Bias}
 	
-	We can use this approach to answer the question, do people who have an account with the bank have an advantage over people who do not have an account with the bank? One approach would be to create two synthetic datasets: one with observations of 0 and another with observations with 1. Since most people do not have accounts with bank we can simply track the difference from the mean rather than do the costly process of trying to run over 5000 observations through our explanation function. Here are the results: 
+	We can use this approach to answer the question, do people who have an account with the bank have an advantage over people who do not have an account with the bank? We can simply track the difference between being a previous customer and note being one by holding all values constant. Here are the results: 
 	
 	Average Risk for Normal Customer: 0.2139 
 	
@@ -246,6 +261,44 @@ to make multiple dummy variables to allow for better predictive models. States a
 	
 	It seems that there is indeed a difference between the assessed risk for a bank consumer and a normal consumer, but it does not seem to be substantial enough to be deemed significant. We could test the statistical significance by trying to run bootstrap with the neural network architecture and evaluate the distributions of these values multiple times over, but this approach is very computationally expensive and would take many hours on our team's machines. For this reason we are choosing to use our judgment, and can say that there does not seem to be a significant difference between the assumed risk of a normal customer or a previous customer at the bank. 
 	
+	We can take this one step further and analyze a distribution of biases generated from the test data. We first cast all customers as non-bank customers and calculate their risk. Then we will cast all customers as bank customers and calculate their risk. By subtracting the bank customer risk from the non-bank customer risk we can generate a distribution of the advantage that a bank customer may enjoy. 
+	
+	\begin{center}
+		\includegraphics[scale = 0.4]{../notebooks/customer_bias.png}
+	\end{center}
 
+	
+	Here we can see that the advantage a bank customer enjoys is only between 0\% and 1.4\%. This means that advantage a bank customer has in credit approval is very marginal, and will most likely not effect the decision making process. This bias may also be indicative of patterns in the real world where previous customers may be less likely to default on debt because they want to maintain a good relationship with the bank. 
+	
+	\newpage
+	\begin{thebibliography}{100} % 100 is a random guess of the total number of
+	%references
+	
+	
+	\bibitem{numpy} Charles R. Harris, K. Jarrod Millman, St{'{e}}fan J.van der Walt, Ralf Gommers, Pauli Virtanen, DavidCournapeau, Eric Wieser, Julian Taylor, SebastianBerg, Nathaniel J. Smith, Robert Kern Matti Picus,Stephan Hoyer, Marten H. van Kerkwijk, MatthewBrett, Allan Haldane, Jaime Fern{'{a}}ndez delR{'{\i}}o, Mark Wiebe, Pearu Peterson, PierreG{'{e}}rard-Marchant, Kevin Sheppard, Tyler Reddy,Warren Weckesser, Hameer Abbasi, Christoph Gohlke,Travis E. Oliphant, ``Array programming with {NumPy}," \emph{Proceedings of the Third IEEEInternational Conference on Multimedia}, pp. 357-362, September 2020.
+	
+	
+	\bibitem{pandas} {W}es {M}c{K}inney, ``{D}ata {S}tructures for {S}tatistical {C}omputing in {P}ython," \emph{{P}roceedings of the 9th {P}ython in {S}cience {C}onference}, pp. 56 - 61, 2010.
+	
+	
+	\bibitem{matplotlib} Hunter, J. D., ``Matplotlib: A 2D graphics environment," \emph{Computing in Science \& Engineering}, pp. 90-95, 2007.
+	
+	
+	\bibitem{tensorflow} Mart\'{\i}n~Abadi, Ashish~Agarwal, Paul~Barham, Eugene~Brevdo, Zhifeng~Chen, Craig~Citro, Greg~S.~Corrado, Andy~Davis, Jeffrey~Dean, Matthieu~Devin, Sanjay~Ghemawat, Ian~Goodfellow, Andrew~Harp, Geoffrey~Irving, Michael~Isard, Yangqing Jia, Rafal~Jozefowicz, Lukasz~Kaiser, Manjunath~Kudlur, Josh~Levenberg, Dandelion~Man\'{e}, Rajat~Monga, Sherry~Moore, Derek~Murray, Chris~Olah, Mike~Schuster, Jonathon~Shlens, Benoit~Steiner, Ilya~Sutskever, Kunal~Talwar, Paul~Tucker, Vincent~Vanhoucke, Vijay~Vasudevan and, Fernanda~Vi\'{e}gas, Oriol~Vinyals, Pete~Warden, Martin~Wattenberg, Martin~Wicke, Yuan~Yu, Xiaoqiang~Zheng, ``{TensorFlow}: Large-Scale Machine Learning on Heterogeneous Systems,", 2015.
+	
+	
+	\bibitem{sklearn} Pedregosa, F. and Varoquaux, G. and Gramfort, A. and Michel, V.
+	and Thirion, B. and Grisel, O. and Blondel, M. and Prettenhofer, P.
+	and Weiss, R. and Dubourg, V. and Vanderplas, J. and Passos, A. and
+	Cournapeau, D. and Brucher, M. and Perrot, M. and Duchesnay, E., ``Scikit-learn: Machine Learning in {P}ython," \emph{Journal of Machine Learning Research}, pp. 2825-2830, 2011.
+	
+	
+	\bibitem{seaborn} Michael L. Waskom, ``seaborn: statistical data visualization," \emph{Journal of Open Source Software}, pp. 3021, 2021.
+	
+	
+	\bibitem{keras} Chollet, Francois and others, ``Keras," \emph{GitHub}, 2015.
+	
+	
+	\end{thebibliography}
 	
 \end{document}	

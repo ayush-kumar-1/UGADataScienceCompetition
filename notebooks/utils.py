@@ -1,5 +1,31 @@
 import numpy as np 
 import pandas as pd
+import matplotlib
+import matplotlib.pyplot as plt
+import tensorflow as tf 
+import sklearn
+import seaborn as sn
+from platform import python_version
+from tensorflow import keras
+from keras import layers
+from utils import *
+from models import * 
+from sklearn.linear_model import LogisticRegression as LogRes
+from sklearn.metrics import classification_report as report
+from sklearn.metrics import precision_score as precision 
+from sklearn.metrics import recall_score as recall
+from sklearn.metrics import precision_recall_curve 
+from sklearn.metrics import confusion_matrix
+from sklearn.metrics import f1_score as f1
+
+if __name__ == '__main__':
+    print("python version: \t", python_version())
+    print("numpy version: \t\t", np.__version__)
+    print("pandas version: \t", pd.__version__)
+    print("matplotlib version: \t", matplotlib.__version__)
+    print("tensorflow version: \t", tf.__version__)
+    print("scikit-learn version: \t", sklearn.__version__)
+    print("seaborn version: \t", sn.__version__)
 
 def load_data(path, as_df = False): 
     """
@@ -68,37 +94,39 @@ def directional_loss(y, yhat):
     #Should be 0 but model returned 1
     return (y-yhat).sum()/y.shape[0]
 
-def tune_threshold(y, y_prob, max_iter = 100, eta = 0.1):
+def tune_threshold(y, y_prob, eta = 0.1, plev = 0.5, max_iter = 100, output = True):
     """
     Tunes the threshold of the decision rule to improve accuracy.
     
     Keyword Arguments: 
     y - theground truth
-    y_prob - the model predictions 
+    y_prob - the model predictions
+    eta - learning rate 
+    plev - the level of precision we are trying to maintain
     """
     threshold = 0.5
     yhat = decide(y_prob, threshold)
-    best_acc = accuracy(y, yhat)
+    p = precision(y, yhat)
+    r = recall(y, yhat)
     initial_loss = directional_loss(y, yhat)
-    print(f"Accuracy = {best_acc}, Threshold = {threshold}, Loss = {initial_loss}")
-
+    if output: 
+        print(f"Precision = {p}, Recall = {r}, Threshold = {threshold}")
     
-    for i in range(max_iter): 
-        loss = directional_loss(y, yhat)
-        new_threshold = threshold + eta*directional_loss(y, yhat)
-        yhat = decide(y_prob, new_threshold)
-        acc = accuracy(y, yhat)
-
-        print(f"Accuracy = {acc}, Threshold = {new_threshold}, Loss = {loss}")
+    for i in range(1, max_iter): 
+        threshold -= eta/i*threshold
+        yhat = decide(y_prob, threshold)
         
-        if (acc <= best_acc): 
+        
+        p = precision(y, yhat)
+        r = recall(y, yhat)
+        
+        if output: 
+            print(f"Precision = {p}, Recall = {r}, Threshold = {threshold}")
+        
+        if (p <= plev): 
             return threshold
-        else: 
-            threshold = new_threshold
-            best_acc = acc
             
     return threshold
-
 
 def accuracy(y, yhat): 
     return 1 - ((y-yhat)**2).sum()/y.shape[0]
